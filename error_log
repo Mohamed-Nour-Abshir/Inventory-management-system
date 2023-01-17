@@ -1,0 +1,2 @@
+[28-Jun-2022 07:45:08 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/kaizenpo/public_html/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 154
+[28-Jun-2022 07:48:03 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24576 bytes) in /home/kaizenpo/public_html/vendor/intervention/image/src/Intervention/Image/Gd/Decoder.php on line 154
