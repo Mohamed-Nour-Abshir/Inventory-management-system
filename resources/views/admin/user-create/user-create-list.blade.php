@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | User Create List
+    Nitmag | User Create List
 @endsection
 
 @section('content')

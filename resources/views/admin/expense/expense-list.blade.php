@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Expense List
+    Nitmag | Expense List
 @endsection
 
 @section('content')

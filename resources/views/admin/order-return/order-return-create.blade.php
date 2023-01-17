@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Sales Return Add
+    Nitmag | Sales Return Add
 @endsection
 
 @section('content')
@@ -80,10 +80,10 @@
 							</div>
 						</div>
 						<div class="card-body" id="customerdetails">
-							
+
 						</div>
 						<div class="card-body" id="productdetails">
-							
+
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -137,7 +137,7 @@
             });
 
 			$(document).ready(function () {
-             
+
                 $('#orderID').change(function(e) {
 
                 var orderID = e.target.value;
@@ -145,13 +145,13 @@
 				// console.log(orderID)
 
                  $.ajax({
-                       
+
                        url:"{{ route('order-return') }}",
                        type:"POST",
                        data: {
                            orderID: orderID
                         },
-                      
+
                        success:function (data) {
 
 						console.log(data);
@@ -162,7 +162,7 @@
 
 						$("#customerdetails").empty();
 						$("#productdetails").empty();
-						
+
 						$('#customerdetails').append(`
 							<table class="table">
 								<thead>
@@ -216,10 +216,10 @@
 											</tr>
 										</tbody>
 									</table>
-								`);	
+								`);
 
 									// Calculation for Return Amount
-						
+
 									$(`#returnQty-${stockQty}`).change(function(){
 
 										var returnQty = parseInt($(this).val());
@@ -236,12 +236,12 @@
 										$("#returnprice").val(sum);
 										$("#currentbalance").val(sum - dueAmount);
 										// console.log(totalQty);
-											
+
 									});
-								
+
                         		})
 
-							$(document).on('click', '.remove-table', function(){  
+							$(document).on('click', '.remove-table', function(){
 								$(this).parents('table').remove();
 							});
 

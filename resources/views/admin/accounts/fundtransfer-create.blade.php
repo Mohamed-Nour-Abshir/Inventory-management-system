@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Fund Transfer
+    Nitmag | Fund Transfer
 @endsection
 
 @section('content')
@@ -80,15 +80,15 @@
 					<div class="card-body">
 						<form action="{{ route('fundtransfer.store') }}" method="POST">
 							@csrf
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Date</label>
 										<input type="date" class="form-control" name="date">
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-								<div class="col-md-6">                      
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Accounts Number *</label>
 											<select name="account_number" id="accountNumber" class="form-control selectpicker" data-live-search="true" data-style="py-0">
@@ -102,7 +102,7 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-								<div class="col-md-6">                      
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Accounts Name *</label>
 										<input type="text" id="accountName" class="form-control" name="account_name" value="" readonly>
@@ -115,7 +115,7 @@
 										<input type="text" id="accountHoldName" class="form-control" name="account_holder_name" value="" readonly>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Branch Name *</label>
@@ -130,7 +130,7 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Transfer Send</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>
@@ -145,7 +145,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -155,19 +155,19 @@
             });
 
 			$(document).ready(function () {
-             
+
                 $('#accountNumber').change(function(e) {
 
                 var accountID = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('account-info') }}",
                        type:"POST",
                        data: {
                            accountID: accountID
                         },
-                      
+
                        success:function (data) {
 							// console.log(data.account[0].account_name);
 							$("#accountName").val(data.account[0].account_name);

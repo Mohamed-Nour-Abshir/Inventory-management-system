@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Order Return List
+    Nitmag | Order Return List
 @endsection
 
 @section('content')

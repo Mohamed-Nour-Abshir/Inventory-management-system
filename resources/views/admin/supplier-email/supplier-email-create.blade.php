@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Supplier Email
+    Nitmag | Supplier Email
 @endsection
 
 @section('content')
@@ -30,8 +30,8 @@
                             <div class="card-body">
                                 <form action="{{ route('supplier-email.store') }}" method="POST">
 									@csrf
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Supplier Name *</label>
                                                 <select name="supplier" class="form-control selectpicker" data-live-search="true" data-style="py-0" id="supplierID">
@@ -43,14 +43,14 @@
 													@endforeach
 												</select>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email *</label>
                                                 <input type="email" id="supplieremail" class="form-control" value="" name="email" readonly>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone Number *</label>
@@ -71,7 +71,7 @@
                                                 <textarea class="form-control" rows="4" name="supplier_message"></textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Send Email</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>
@@ -86,7 +86,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -96,19 +96,19 @@
             });
 
 			$(document).ready(function () {
-             
+
                 $('#supplierID').change(function(e) {
 
                 var supplierId = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('supplier-api') }}",
                        type:"POST",
                        data: {
                            supplierId: supplierId
                         },
-                      
+
                        success:function (data) {
 							// console.log(data);
 							$("#supplieremail").val(data.supplier[0].email);

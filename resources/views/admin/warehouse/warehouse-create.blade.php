@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Warehouse Add
+    Nitmag | Warehouse Add
 @endsection
 
 @section('content')
@@ -29,14 +29,14 @@
 						<form action="{{ route('warehouse.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Name *</label>
 										<input type="text" name="warehouse_name" class="form-control" placeholder="Enter Warehouse Name">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>                                
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Warehouse</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

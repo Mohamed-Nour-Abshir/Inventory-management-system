@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Fund Transfer List
+    Nitmag | Fund Transfer List
 @endsection
 
 @section('content')

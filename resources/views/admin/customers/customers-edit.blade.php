@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Customers Edit
+    Nitmag | Customers Edit
 @endsection
 
 @section('content')
@@ -19,21 +19,21 @@
                                 <form action="{{ route('customer.update', $customer->id) }}" method="POST">
 									@csrf
 									@method('PATCH')
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name *</label>
                                                 <input type="text" class="form-control" value="{{ $customer->name }}" name="name">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email *</label>
                                                 <input type="text" class="form-control" value="{{ $customer->email }}" name="email">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone Number *</label>
@@ -47,7 +47,7 @@
                                                 <textarea class="form-control" rows="4" name="address">{{ $customer->address }}</textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Add Customer</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>

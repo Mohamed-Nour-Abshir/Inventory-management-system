@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Sales Report
+    Nitmag | Sales Report
 @endsection
 
 @section('content')

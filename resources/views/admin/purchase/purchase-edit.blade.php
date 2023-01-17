@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Purchase Update
+    Nitmag | Purchase Update
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
                                                 <label for="dob">Date *</label>
                                                 <input type="date" class="form-control" value="{{ $purchase->date }}" name="date" />
                                             </div>
-                                        </div>  
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Supplier</label>
@@ -38,7 +38,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Product Name</label>
@@ -51,8 +51,8 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div> 
-                                        <div class="col-md-12"> 
+                                        </div>
+                                        <div class="col-md-12">
                                             <div class="form-group" id="showOne">
                                                 @if($purchase->purchaseproduct)
                                                     {{-- @dump($purchase->purchaseproduct) --}}
@@ -74,7 +74,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><input type="hidden" name="purchase_name[]" value="{{ $data->id }}"/></td>  
+                                                                    <td><input type="hidden" name="purchase_name[]" value="{{ $data->id }}"/></td>
                                                                     <td><input type="text" class="form-control" value="{{ $data->product_name }}" name="product_name[]" readonly/></td>
                                                                     <td><input type="text" id="purchaseprice" class="cal form-control" value="{{ $data->product_price }}" name="product_price[]" readonly/></td>
                                                                     <td><input type="number" class="form-control" value="{{ $data->sell_price }}" name="sell_price[]" /></td>
@@ -89,7 +89,7 @@
                                                     @endforeach
                                                 @endif
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>
                                         <div class="row mt-8 mb-10">
                                             <div class="offset-lg-7 col-lg-5">
@@ -151,13 +151,13 @@
                                                                 <h6><input type="text" class="form-control" value="{{ $data->product_name }}" name="product_name[]" readonly/></h6>&nbsp;&nbsp;
                                                                 <h6><input type="number" placeholder="Quantity" value="{{ $data->qty }}" class="form-control" name="qty[]" /></h6>&nbsp;&nbsp;
                                                                 <h6><button type="button" class="btn btn-danger" id="removeID">Remove</button></h6>
-                                                                @endforeach 
+                                                                @endforeach
                                                             @endif
                                                             </div>
                                                         </div>
                                                 </div>
                                             </div>
-                                        </div>                             
+                                        </div>
                                     <button type="submit" class="btn btn-primary mr-2">Update Purchase</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>
@@ -183,20 +183,20 @@
 
 
             $(document).ready(function () {
-             
+
                 $('#productId').change(function(e) {
-                 
+
                 var supplier_id = e.target.value;
                 // var addOption = "";
 
                  $.ajax({
-                       
+
                        url:"{{ url('home/productname') }}",
                        type:"POST",
                        data: {
                            supplier_id: supplier_id
                         },
-                      
+
                        success:function (data) {
                             $('#productName').empty();
 
@@ -217,7 +217,7 @@
 
                     $(document).ready(function(){
                         $('#productName').change(function(e){
-                                    
+
                             var price_id = e.target.value;
                             var table ="";
                             // console.log(price_id);
@@ -242,7 +242,7 @@
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>`
-                                        
+
                                             $.map(data.supplierproduct,function(index,value){
                                                 $('#showOne').append(
                                                 table+=`<tbody>
@@ -274,7 +274,7 @@
 
                         });
 
-                    $(document).on('click', '.remove-tr', function(){  
+                    $(document).on('click', '.remove-tr', function(){
                             $(this).parents('table').remove();
                         });
 
@@ -304,7 +304,7 @@
         var dueAmount = parseFloat(document.getElementById('dueAmount').value);
 
         document.getElementById('paidAmount').value = (purchaseAmount - total);
-        
+
     })
 
 
@@ -333,18 +333,18 @@
                     });
 
                     $(document).ready(function () {
-                    
+
                         $('#supplierId').on('change',function(e) {
-                        
+
                         var supplier_id = e.target.value;
                         $.ajax({
-                            
+
                             url:"{{ url('home/productname') }}",
                             type:"POST",
                             data: {
                                 supplier_id: supplier_id
                                 },
-                            
+
                             success:function (data) {
                                     $('#productNameID').empty();
                                     $.each(data.supplierproduct[0].supplierproduct,function(index,productName){
@@ -358,7 +358,7 @@
 
         $(document).ready(function(){
             $('#productNameID').change(function(e){
-                        
+
                 var price_id = e.target.value;
                 var table ="";
                 // console.log(price_id);
@@ -369,7 +369,7 @@
                         price_id: price_id
                     },
                         success: function(data){
-                                
+
                                 $.map(data.supplierproduct,function(index,value){
                                     $('#quantityAdd').append(`
                                         <div class="remove-qt">
@@ -392,8 +392,8 @@
                 });
 
             });
-            
-        $(document).on('click', '#removeID', function(){  
+
+        $(document).on('click', '#removeID', function(){
             $(this).parents('.remove-qt').remove();
         });
 
@@ -405,4 +405,3 @@
 
 
 
-  

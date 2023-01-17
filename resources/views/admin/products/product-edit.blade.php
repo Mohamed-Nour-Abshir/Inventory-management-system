@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Product Update
+    Nitmag | Product Update
 @endsection
 
 @push('css')
@@ -51,25 +51,25 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Supplier Name</label>
                                        	<input type="text" class="form-control" id="supplierID" name="supplier_name" value="{{ $product->supplier_name }}" readonly>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Purchase Price</label>
                                        	<input type="text" class="form-control" id="purchasepriceID" name="purchase_price" value="{{ $product->purchase_price }}" readonly>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Sell Price</label>
                                        	<input type="text" class="form-control" id="sellpriceID" name="sell_price" value="{{ $product->sell_price }}" readonly>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Quantity</label>
@@ -84,13 +84,13 @@
 											<label class="custom-file-label" for="customFile">Choose Image</label>
 										</div>
 									</div>
-								</div> 
+								</div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Product Code</label>
                                        	<input type="text" class="form-control" name="product_code" placeholder="Enter Product Code" value="{{ $product->product_code }}">
                                     </div>
-                                </div> 
+                                </div>
 								<div class="col-md-6">
                                     <div class="form-group">
                                         <label>Category Name *</label>
@@ -103,7 +103,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
 								<div class="col-md-6">
                                     <div class="form-group">
                                         <label>Brand Name *</label>
@@ -116,7 +116,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
 								<div class="col-md-6">
                                     <div class="form-group">
                                         <label>Unit Name *</label>
@@ -129,7 +129,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
 								<div class="col-md-6">
                                     <div class="form-group">
                                         <label>Warehouse Name *</label>
@@ -142,7 +142,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
 								<div class="col-md-8">
                                     <div class="form-group" id="warehouseQty">
 										<table>
@@ -163,13 +163,13 @@
                                                             <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td>
                                                             <td><input type="hidden" name="warehousestock_name[]" value="{{ $data->id }}"/></td>
                                                         </tr>
-                                                    @endforeach 
+                                                    @endforeach
                                                 @endif
 											</tbody>
 										</table>
                                     </div>
-                                </div> 
-                            </div>                            
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary mr-2">Update Product</button>
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </form>
@@ -195,19 +195,19 @@
 
 
             $(document).ready(function () {
-             
+
                 $('#purchaseProductID').change(function(e) {
-                 
+
                 	var purchaseProductID = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('product-details') }}",
                        type:"POST",
                        data: {
                            purchaseProductID: purchaseProductID
                         },
-                      
+
                        success:function (data) {
                            $('#supplierID').val(data.purchaseproduct[0].purchase.supplier.name);
                            $('#purchasepriceID').val(data.purchaseproduct[0].product_price);
@@ -221,7 +221,7 @@
 				$(document).ready(function(){
 
                         $('#warehouseID').change(function(e){
-                                    
+
                             var warehouseID = e.target.value;
                             var table ="";
                             $.ajax({
@@ -231,7 +231,7 @@
                                     warehouseID: warehouseID
                                 },
                                     success: function(data){
-										
+
                                             table+=`<table class="table">`
                                             table+=`<thead class="table-primary">
                                                         <tr>
@@ -240,7 +240,7 @@
                                                             <th scope="col"></th>
                                                         </tr>
                                                     </thead>`
-                                        
+
                                             $.map(data.warehouseDetails,function(index,value){
                                                 console.log(index);
                                                 $('#warehouseQty').append(
@@ -266,7 +266,7 @@
 
                         });
 
-						 $(document).on('click', '.remove-tr', function(){  
+						 $(document).on('click', '.remove-tr', function(){
                             $(this).parents('table').remove();
                         });
 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Purchase Add
+    Nitmag | Purchase Add
 @endsection
 
 @push('css')
@@ -43,7 +43,7 @@ padding: 15px 5px !important;
                                         <label for="dob">Date *</label>
                                         <input type="date" class="form-control" id="dob" name="date" />
                                     </div>
-                                </div>  
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Supplier</label>
@@ -56,19 +56,19 @@ padding: 15px 5px !important;
                                             @endforeach
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Product Name</label>
                                         <select class="form-control" data-style="py-0" id="productName">
                                         </select>
                                     </div>
-                                </div> 
-                                <div class="col-md-12"> 
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group" id="showOne">
-                                        
+
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                                 <div class="row mt-8 mb-10">
                                     <div class="purchaseAmount offset-lg-7 col-lg-5">
@@ -140,11 +140,11 @@ padding: 15px 5px !important;
                                                     </div>
                                                 </div>
                                                 <div id="quantityAdd">
-                                                    
+
                                                 </div>
                                         </div>
                                     </div>
-                                </div>                             
+                                </div>
                             <button type="submit" class="btn btn-primary mr-2">Add Purchase</button>
                             <button type="reset" class="btn btn-danger">Reset</button>
                         </form>
@@ -170,20 +170,20 @@ padding: 15px 5px !important;
 
 
             $(document).ready(function () {
-             
+
                 $('#productId').change(function(e) {
-                 
+
                 var supplier_id = e.target.value;
                 // var addOption = "";
 
                  $.ajax({
-                       
+
                        url:"{{ url('home/productname') }}",
                        type:"POST",
                        data: {
                            supplier_id: supplier_id
                         },
-                      
+
                        success:function (data) {
                             $('#productName').empty();
 
@@ -201,7 +201,7 @@ padding: 15px 5px !important;
 
                     $(document).ready(function(){
                         $('#productName').change(function(e){
-                                    
+
                             var price_id = e.target.value;
                             var table ="";
                             // console.log(price_id);
@@ -227,9 +227,9 @@ padding: 15px 5px !important;
                                                             <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>`
-                                        
+
                                             $.map(data.supplierproduct,function(index,value){
-                                                
+
                                                 $('#showOne').append(
                                                 table+=`<tbody>
                                                             <tr>
@@ -260,7 +260,7 @@ padding: 15px 5px !important;
 
                         });
 
-                    $(document).on('click', '.remove-tr', function(){  
+                    $(document).on('click', '.remove-tr', function(){
                             $(this).parents('table').remove();
                         });
 
@@ -275,7 +275,7 @@ padding: 15px 5px !important;
         let purchaseprice = $(`#purchaseprice-${productName}`).val();
         let quantity = $(`#quantity-${productName}`).val();
         let discount = $(`#discount-${productName}`).val();
-        let totalDiscount = (purchaseprice * quantity * discount) / 100;             
+        let totalDiscount = (purchaseprice * quantity * discount) / 100;
         let totalAmount = (purchaseprice * quantity) - totalDiscount;
         $(`#totalAmount-${productName}`).val(totalAmount);
 
@@ -285,7 +285,7 @@ padding: 15px 5px !important;
         });
 
         $("#subtotalPurchaseAmount").val(sum);
-                
+
     })
 
     $("#paidAmount").change(function(){
@@ -295,7 +295,7 @@ padding: 15px 5px !important;
         let paidAmount = $('#paidAmount').val();
         let dueAmount = (totalAmount - paidAmount);
         $("#dueAmount").val(dueAmount);
-                
+
     })
 
         // use For Due Product
@@ -320,18 +320,18 @@ padding: 15px 5px !important;
                     });
 
                     $(document).ready(function () {
-                    
+
                         $('#supplierId').on('change',function(e) {
-                        
+
                         var supplier_id = e.target.value;
                         $.ajax({
-                            
+
                             url:"{{ url('home/productname') }}",
                             type:"POST",
                             data: {
                                 supplier_id: supplier_id
                                 },
-                            
+
                             success:function (data) {
                                     $('#productNameID').empty();
                                     $.each(data.supplierproduct[0].supplierproduct,function(index,productName){
@@ -345,7 +345,7 @@ padding: 15px 5px !important;
 
         $(document).ready(function(){
             $('#productNameID').change(function(e){
-                        
+
                 var price_id = e.target.value;
                 var table ="";
                 // console.log(price_id);
@@ -356,7 +356,7 @@ padding: 15px 5px !important;
                         price_id: price_id
                     },
                         success: function(data){
-                                
+
                                 $.map(data.supplierproduct,function(index,value){
                                     $('#quantityAdd').append(`
                                         <div class="remove-qt">
@@ -379,8 +379,8 @@ padding: 15px 5px !important;
                 });
 
             });
-            
-        $(document).on('click', '#removeID', function(){  
+
+        $(document).on('click', '#removeID', function(){
             $(this).parents('.remove-qt').remove();
         });
 
@@ -392,4 +392,3 @@ padding: 15px 5px !important;
 
 
 
-  

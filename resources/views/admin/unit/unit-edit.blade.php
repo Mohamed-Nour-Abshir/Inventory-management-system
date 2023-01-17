@@ -1,6 +1,6 @@
  @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Unit Update
+    Nitmag | Unit Update
 @endsection
 
 @section('content')
@@ -20,14 +20,14 @@
 							@csrf
 							@method('PATCH')
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Unit Name *</label>
 										<input type="text" name="name" class="form-control" value="{{ $unit->name }}" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>                                
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update Unit</button>
 						</form>
 					</div>

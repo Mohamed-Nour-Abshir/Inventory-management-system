@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Role Lists
+    Nitmag | Role Lists
 @endsection
 
 @section('content')

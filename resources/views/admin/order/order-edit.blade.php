@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Invoice Update
+    Nitmag | Invoice Update
 @endsection
 
 @section('content')
 
 <div class="content-page">
 	<div class="container-fluid">
-		<div class="row">                  
+		<div class="row">
 			<div class="col-lg-12">
 			<div class="card card-block card-stretch card-height print rounded">
 				<div class="card-header d-flex justify-content-between bg-primary header-invoice">
@@ -23,7 +23,7 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<div class="col-sm-12">                                  
+						<div class="col-sm-12">
 							<img src="{{ asset('assets/images/kaizenit.png') }}" class="logo-invoice img-fluid mb-3">
 						</div>
 					</div>
@@ -89,7 +89,7 @@
 									</tbody>
 									</table>
 							</div>
-						</div>                              
+						</div>
 					</div>
 					<div class="row mt-4 mb-3">
 						<div class="offset-lg-8 col-lg-4">
@@ -140,7 +140,7 @@
 													<option value="Due">Due</option>
 												</select>
 											</div>
-										</div> 
+										</div>
 										<div class="mb-2">
 											<button type="submit" class="myButton mt-2 btn btn-dark"> <i class="ri-bill-fill"></i>Invoice Update</button>
 										</div>
@@ -148,10 +148,10 @@
 								</form>
 							</div>
 						</div>
-					</div>                            
+					</div>
 				</div>
 			</div>
-			</div>                                    
+			</div>
 		</div>
 	</div>
 </div>

@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Invoice
+    Nitmag | Invoice
 @endsection
 
 @section('content')
 
 <div class="content-page">
 	<div class="container-fluid">
-		<div class="row">                  
+		<div class="row">
 			<div class="col-lg-12">
 			<div class="card card-block card-stretch card-height print rounded">
 				<div class="card-header d-flex justify-content-between bg-primary header-invoice">
@@ -27,7 +27,7 @@
 							<div class="float-left">
 								<img src="{{ asset('logo') . '/' . $companysetting->company_logo }}" class="logo-invoice img-fluid mb-3">
 							</div>
-							<div class=" text-center">                                  
+							<div class=" text-center">
 								<h4><i>{{ $companysetting->company_name }}</i></h4>
 								<div><small><b>Phone Number: {{ $companysetting->company_contact }} </b></small></div>
 								<div><small><b>Email: {{ $companysetting->company_email }} </b></small></div>
@@ -97,7 +97,7 @@
 									</tbody>
 									</table>
 							</div>
-						</div>                              
+						</div>
 					</div>
 					<div class="row mt-4 mb-3">
 						<div class="offset-lg-8 col-lg-4">
@@ -121,7 +121,7 @@
 									</div>
 									<div>
 										<h6>Vat</h6>
-											
+
 										@if($orderDetails->vat > 0)
 											<p><i>{{ $orderDetails->vat }} %</i></p>
 										@elseif($orderDetails->vat_tk > 0)
@@ -145,10 +145,10 @@
 								</div>
 							</div>
 						</div>
-					</div>                            
+					</div>
 				</div>
 			</div>
-			</div>                                    
+			</div>
 		</div>
 	</div>
 </div>

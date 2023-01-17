@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Stock Update
+    Nitmag | Stock Update
 @endsection
 
 @section('content')
@@ -19,8 +19,8 @@
 						<form action="{{ route('stock.update', $stockquantity->id) }}" method="POST">
 							@csrf
                     		@method('PATCH')
-							<div class="row"> 
-								<div class="col-md-12">                      
+							<div class="row">
+								<div class="col-md-12">
 									<div class="form-group">
 										<label for="dob">Date *</label>
 										<input type="date" class="form-control" id="dob" name="date" value="{{ $stockquantity->date }}"/>
@@ -40,19 +40,19 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6"> 
+								<div class="col-md-6">
 									<div class="form-group" id="showQuantity">
 										<label for="dob">Available Quantity *</label>
 										<input type="text" name="available_quantity" value="{{ $stockquantity->available_quantity }}" class="form-control" readonly/>
 									</div>
 								</div>
-								<div class="col-md-6"> 
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="dob">In Stock *</label>
 										<input type="text" id="inStockId" class="inStock form-control" value="{{ $totalQty }}" readonly/>
 									</div>
 								</div>
-								<div class="col-md-6"> 
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="dob">Remaining Quantity *</label>
 										<input type="text" id="remaningStock" value="{{ $totalQuantity }}" class="form-control" readonly/>
@@ -61,7 +61,7 @@
 								<div class="col-md-12" id="year">
 									<label>Storage Details*</label>
 									<div class="col-md-8">
-										<table class="table" id="dynamicTable">  
+										<table class="table" id="dynamicTable">
 											<tr>
 												<th></th>
 												<th>Storage Name</th>
@@ -72,18 +72,18 @@
 											@foreach ($stockquantity->stockquantity as $data)
 											<tr>
 												<td><input type="hidden" name="qty_name[]" value="{{ $data->id }}"/></td>
-												<td><input type="text" name="storage_name[]" value="{{ $data->storage_name }}" class="form-control" /></td> 
+												<td><input type="text" name="storage_name[]" value="{{ $data->storage_name }}" class="form-control" /></td>
 												<td><input type="number" name="quantity[]" value="{{ $data->quantity }}" class="form-control" /></td>
 												@if($stockquantity->stockquantity->first()->id == $data->id)
-												<td><button type="button" name="add" id="storageAdd" class="btn btn-success">Add More</button></td> 
+												<td><button type="button" name="add" id="storageAdd" class="btn btn-success">Add More</button></td>
 												@endif
-											</tr> 
+											</tr>
 											@endforeach
 										@endif
-										</table> 
+										</table>
 									</div>
                         	    </div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update Stock</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>
@@ -98,7 +98,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -109,19 +109,19 @@
 
 
             $(document).ready(function () {
-             
+
                 $('#purchaseProductId').change(function(e) {
 
                 var purchaseproduct_id = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('purchase-name') }}",
                        type:"POST",
                        data: {
                            purchaseproduct_id: purchaseproduct_id
                         },
-                      
+
                        success:function (data) {
 						// console.log(data)
                             $('#showQuantity').empty();
@@ -140,7 +140,7 @@
             });
 
 		$("#storageAdd").click(function(){
-	
+
 			$("#dynamicTable").append(
 				`<tr>
 					<td><input type="text" name="storage_name[]" placeholder="Enter Storage Name" class="form-control" /></td>
@@ -149,25 +149,25 @@
 				</tr>
 					`);
 		});
-	
-		$(document).on('click', '.remove-tr', function(){  
+
+		$(document).on('click', '.remove-tr', function(){
 			$(this).parents('tr').remove();
 		});
 
 		$(document).ready(function () {
-             
+
                 $('#purchaseProductId').change(function(e) {
 
                 var stockquantity_id = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('in-stock') }}",
                        type:"POST",
                        data: {
                            stockquantity_id: stockquantity_id
                         },
-                      
+
                        success:function (data) {
                             $("#inStockId").val(data.totalQty);
 

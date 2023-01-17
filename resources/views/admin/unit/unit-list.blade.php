@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Unit List
+    Nitmag | Unit List
 @endsection
 
 @section('content')

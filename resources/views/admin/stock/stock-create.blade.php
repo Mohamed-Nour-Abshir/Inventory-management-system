@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Stock Add
+    Nitmag | Stock Add
 @endsection
 
 @section('content')
@@ -28,8 +28,8 @@
 					<div class="bodySelect card-body">
 						<form action="{{ route('stock.store') }}" method="POST">
 							@csrf
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="dob">Date *</label>
 										<input type="date" class="form-control" id="dob" name="date" />
@@ -48,7 +48,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6"> 
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="dob">Available Quantity *</label>
 										<input type="text" id="showQuantity" name="available_quantity" class="inStock form-control" value="" readonly/>
@@ -57,20 +57,20 @@
 								<div class="col-md-12" id="year">
 									<label>Storage Details*</label>
 									<div class="col-md-8">
-										<table class="table" id="dynamicTable">  
+										<table class="table" id="dynamicTable">
 											<tr>
 												<th>Storage Name</th>
 												<th>Quantity</th>
 											</tr>
 											<tr>
-												<td><input type="text" name="storage_name[]" placeholder="Enter Storage Name" class="form-control" /></td> 
-												<td><input type="number" name="quantity[]" placeholder="Enter quantity" class="form-control" /></td> 
-												<td><button type="button" name="add" id="storageAdd" class="btn btn-success">Add More</button></td>  
-											</tr>  
-										</table> 
+												<td><input type="text" name="storage_name[]" placeholder="Enter Storage Name" class="form-control" /></td>
+												<td><input type="number" name="quantity[]" placeholder="Enter quantity" class="form-control" /></td>
+												<td><button type="button" name="add" id="storageAdd" class="btn btn-success">Add More</button></td>
+											</tr>
+										</table>
 									</div>
                         	    </div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Stock</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>
@@ -85,7 +85,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 							$.ajaxSetup({
@@ -96,19 +96,19 @@
 
 
 									$(document).ready(function () {
-									
+
 										$('#purchaseProductId').change(function(e) {
 
 										var purchaseproduct_id = e.target.value;
 
 										$.ajax({
-											
+
 											url:"{{ route('purchase-name') }}",
 											type:"POST",
 											data: {
 												purchaseproduct_id: purchaseproduct_id
 												},
-											
+
 											success:function (data) {
 
 													// $('#showQuantity').val(data.totalQty);
@@ -119,7 +119,7 @@
 									});
 
 								$("#storageAdd").click(function(){
-							
+
 									$("#dynamicTable").append(
 										`<tr>
 											<td><input type="text" name="storage_name[]" placeholder="Enter Storage Name" class="form-control" /></td>
@@ -128,8 +128,8 @@
 										</tr>
 											`);
 								});
-							
-								$(document).on('click', '.remove-tr', function(){  
+
+								$(document).on('click', '.remove-tr', function(){
 									$(this).parents('tr').remove();
 								});
 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Brand Add
+    Nitmag | Brand Add
 @endsection
 
 @section('content')
@@ -29,20 +29,20 @@
 						<form action="{{ route('brand.store') }}" method="POST" data-toggle="validator">
 							@csrf
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Brand Name *</label>
 										<input type="text" name="name" class="form-control" placeholder="Enter Unit Name">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>                                
+								</div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Brand Summery</label>
 										<textarea class="form-control" rows="4" name="summery" placeholder="Brand summery"></textarea>
 									</div>
-								</div>                              
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Brand</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

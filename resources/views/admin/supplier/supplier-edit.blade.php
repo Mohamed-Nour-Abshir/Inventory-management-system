@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Supplier Edit
+    Nitmag | Supplier Edit
 @endsection
 
 @section('content')
@@ -19,35 +19,35 @@
 						<form action="{{ route('supplier.update', $supplier->id) }}" method="POST">
 							@csrf
                     		@method('PATCH')
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Name *</label>
 										<input type="text" class="form-control" value="{{ $supplier->name }}" name="name" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
-								<div class="col-md-6">                      
+								</div>
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Email *</label>
 										<input type="email" class="form-control" value="{{ $supplier->email }}" name="email" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Company Name *</label>
 										<input type="text" class="form-control" value="{{ $supplier->company_name }}" name="company_name" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Phone Number *</label>
 										<input type="text" class="form-control" value="{{ $supplier->contact }}" name="contact" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Designation *</label>
@@ -64,7 +64,7 @@
 								<div class="col-md-12" id="year">
 									<label>Product Name *</label>
 									<div class="col-md-10">
-										<table class="table" id="dynamicTable">  
+										<table class="table" id="dynamicTable">
 											<tr>
 												<th></th>
 												<th>Product ID</th>
@@ -74,14 +74,14 @@
 											{{-- @dump($supplier->supplierproduct) --}}
 											@if($supplier->supplierproduct)
 												@foreach ($supplier->supplierproduct as $productprice)
-												<tr> 
-													<td><input type="hidden" name="price_name[]" value="{{ $productprice->id }}"/></td>  
-													<td><input type="text" name="products_id[]" value="{{ $productprice->products_id }}" class="form-control" /></td> 
-													<td><input type="text" name="product[]" value="{{ $productprice->product }}" class="form-control" /></td> 
+												<tr>
+													<td><input type="hidden" name="price_name[]" value="{{ $productprice->id }}"/></td>
+													<td><input type="text" name="products_id[]" value="{{ $productprice->products_id }}" class="form-control" /></td>
+													<td><input type="text" name="product[]" value="{{ $productprice->product }}" class="form-control" /></td>
 													<td><input type="number" name="price[]" value="{{ $productprice->price }}" class="form-control" /></td>
 													{{-- @dump($supplier->supplierproduct->last()) --}}
 													@if($supplier->supplierproduct->first()->id == $productprice->id)
-													<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td> 
+													<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 													@endif
 													<td>
 														{{-- <form action="{{ route('productdestroy', $productprice->id) }}" method="POST">
@@ -90,13 +90,13 @@
 															<button type="submit" class="btn btn-danger">Remove</button>
 														</form> --}}
 													</td>
-												</tr>  
+												</tr>
 												@endforeach
 											@endif
-										</table> 
+										</table>
 									</div>
                         		</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update Supplier</button>
 						</form>
 					</div>
@@ -110,10 +110,10 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 var i = 0;
-       
+
     $("#add").click(function(){
 
         $("#dynamicTable").append(`
@@ -126,8 +126,8 @@ var i = 0;
 			</tr>`);
 
     });
-   
-    $(document).on('click', '.remove-tr', function(){  
+
+    $(document).on('click', '.remove-tr', function(){
          $(this).parents('tr').remove();
     });
 

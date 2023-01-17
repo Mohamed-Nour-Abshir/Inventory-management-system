@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Role Add
+    Nitmag | Role Add
 @endsection
 
 @section('content')
@@ -28,13 +28,13 @@
 						<form action="{{ route('role-permission.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Name *</label>
 										<input type="text" name="name" class="form-control" placeholder="Enter Role Name">
 									</div>
-								</div>                                
-								<div class="col-md-12">                      
+								</div>
+								<div class="col-md-12">
 									<div class="form-group">
 										<label for="name"> <b>Permissions</b></label>
 
@@ -71,10 +71,10 @@
 											<br>
 											<hr>
 											@php $i++; @endphp
-										@endforeach				
+										@endforeach
 									</div>
-								</div>                                
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Role</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

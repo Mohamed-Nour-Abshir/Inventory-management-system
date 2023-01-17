@@ -1,6 +1,6 @@
  @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Brand Update
+    Nitmag | Brand Update
 @endsection
 
 @section('content')
@@ -20,20 +20,20 @@
 							@csrf
 							@method('PATCH')
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Brand Name *</label>
 										<input type="text" name="name" class="form-control" value="{{ $brand->name }}" required>
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>   
+								</div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Brand summery</label>
 										<textarea class="form-control" rows="4" name="summery">{{ $brand->summery }}</textarea>
 									</div>
-								</div>   
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update Brand</button>
 						</form>
 					</div>

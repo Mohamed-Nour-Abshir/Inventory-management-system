@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | User Add
+    Nitmag | User Add
 @endsection
 
 @section('content')
@@ -31,28 +31,28 @@
 					<div class="card-body">
 						<form action="{{ route('user-create.store') }}" method="POST" enctype="multipart/form-data">
 							@csrf
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Name *</label>
 										<input type="text" class="form-control" placeholder="Enter Name" name="name">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
-								<div class="col-md-6">                      
+								</div>
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Email *</label>
 										<input type="email" class="form-control" placeholder="Enter Email" name="email">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Password</label>
 										<input type="password" id="pwd1" class="form-control" placeholder="Enter Password" name="password">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Confirm Password</label>
@@ -66,7 +66,7 @@
 										<input type="number" class="form-control" placeholder="Enter Phone Number" name="contact">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Image</label>
@@ -104,7 +104,7 @@
 										<textarea class="form-control" rows="4" placeholder="User Address" name="address"></textarea>
 									</div>
 								</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add User</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

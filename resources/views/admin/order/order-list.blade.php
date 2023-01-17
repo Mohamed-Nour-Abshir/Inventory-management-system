@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Order List
+    Nitmag | Order List
 @endsection
 
 @section('content')
@@ -50,7 +50,7 @@
 							<td>BDT. {{ $data->received_amount }}</td>
 							<td><div class="badge badge-warning mr-2"><h5>BDT. {{ $data->due }}</h5></div></td>
 							<td><div class="btn btn-danger mt-2"><h5>{{ $data->order_status }}</h5></div></td>
-							
+
 							<td>
 								<div class="d-flex align-items-center list-action">
 									<a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View Invoice"

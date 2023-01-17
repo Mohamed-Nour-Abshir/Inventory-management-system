@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Companay Settings Edit
+    Nitmag | Companay Settings Edit
 @endsection
 
 @section('content')
@@ -28,21 +28,21 @@
                             <div class="card-body">
                                 <form action="{{ route('company-setting.store') }}" method="POST" enctype="multipart/form-data">
 									@csrf
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Name *</label>
                                                 <input type="text" class="form-control" placeholder="Enter Name" name="company_name">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Email *</label>
                                                 <input type="text" class="form-control" placeholder="Enter Email" name="company_email">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Phone Number *</label>
@@ -65,7 +65,7 @@
                                                 <textarea class="form-control" rows="4" name="company_address"></textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Add Setting</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>

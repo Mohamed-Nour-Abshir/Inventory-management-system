@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Warehouse Update
+    Nitmag | Warehouse Update
 @endsection
 
 @section('content')

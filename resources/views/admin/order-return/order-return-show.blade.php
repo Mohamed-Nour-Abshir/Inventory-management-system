@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Sales Return Show
+    Nitmag | Sales Return Show
 @endsection
 
 @section('content')
@@ -97,7 +97,7 @@
 								</tr>
 								</tbody>
 							</table>
-							
+
 						</div>
 						<div class="card-body" id="productdetails">
 							<table class="col-lg-12 mb-2" id="returnTable">

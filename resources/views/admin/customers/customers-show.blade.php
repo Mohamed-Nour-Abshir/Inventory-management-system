@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Customers Add
+    Nitmag | Customers Add
 @endsection
 
 @section('content')
@@ -28,21 +28,21 @@
                             <div class="card-body">
                                 <form id="customerForm" action="{{ route('customer.store') }}" method="POST">
 									@csrf
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name *</label>
                                                 <input type="text" class="form-control" placeholder="Enter Name" name="name">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email *</label>
                                                 <input type="text" class="form-control" placeholder="Enter Email" name="email">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone Number *</label>
@@ -56,7 +56,7 @@
                                                 <textarea class="form-control" rows="4" name="address"></textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Add Customer</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>
@@ -75,7 +75,7 @@
     <script>
         				$(document).ready(function () {
 
-						$('#customerForm').validate({ 
+						$('#customerForm').validate({
                             alert(123);
 							rules: {
 								name: {

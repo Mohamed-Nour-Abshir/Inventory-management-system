@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | New Order
+    Nitmag | New Order
 @endsection
 
 @section('content')
@@ -56,7 +56,7 @@
 											</div>
 										</div>
 										 <div class="col-sm-4" id="customerdetails">
-												
+
 										</div>
 									</div>
 								</div>
@@ -94,7 +94,7 @@
 								{{-- </div> --}}
 									<div class="form-group">
 										<div class="col-md-12" id="sellID">
-											
+
 										</div>
 									</div>
 								</div>
@@ -109,7 +109,7 @@
 										<div><h6>Total Amount (BDT): <input type="number" id="totalSellamount" value="0" name="total_amount" class="totalSell form-control mb-2" readonly/></h6></div>
 										<div class="d-flex justify-content-between">
 											<h6>
-												Discount (%): 
+												Discount (%):
 												<input type="number" id="discount" value="0" name="discount" class="form-control" />&nbsp;
 											</h6>
 											<h6>
@@ -119,11 +119,11 @@
 										</div>
 										<div class="d-flex justify-content-between">
 											<h6>
-												Vat (%): 
+												Vat (%):
 												<input type="number" id="vatprice" value="0" name="vat" class="form-control mb-2" />
 											</h6>
 											<h6>
-												Vat (BDT): 
+												Vat (BDT):
 												<input type="number" id="vatpriceTk" value="0" name="vat_tk" class="form-control mb-2" />
 											</h6>
 										</div>
@@ -171,7 +171,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 
@@ -183,25 +183,25 @@
 					});
 
 			$(document).ready(function () {
-             
+
                 $('#customerID').change(function(e) {
 
                 var customerID = e.target.value;
 				// console.log(customerID);
                  $.ajax({
-                       
+
                        url:"{{ route('customer-details') }}",
                        type:"POST",
                        data: {
                            customerID: customerID
                         },
-                      
+
                        success:function (data) {
                                 // console.log(data.previousDue[0].order[0].due);
 						$('#customerdetails').empty();
 
                             $.map(data.customerdetails,function(index,customerdetails){
-                              
+
 							     $('#customerdetails').append(`
 															<h6 class="block">Name:</h6><span>${index.name}</span>
 															<h6 class="block">Phone:</h6><span>${index.contact}</span>
@@ -217,30 +217,30 @@
 
 	// Use for previous due amount view
 
-		
+
 
 		$(document).ready(function () {
-             
+
                 $('#productID').on('change', function(e) {
 
                 var orderpurchaseID = e.target.value;
                 var stockID = e.target.value;
                 var table ="";
-				
+
                  $.ajax({
-                       
+
                        url:"{{ route('order-purchaseproduct') }}",
                        type:"POST",
                        data: {
                            orderpurchaseID: orderpurchaseID,
                            stockID: stockID
                         },
-                      
+
                        success:function (data) {
                                 // console.log(data);
 
                             $.map(data.orderpurchaseproduct,function(index){
-							
+
 								const warehousestockqty = index.warehousestockqty;
 								const orderQty = index.orderdetail;
 								// console.log(index);
@@ -262,19 +262,19 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><input type="hidden" value="${index.id}" name="productId[]" class="form-control" readonly/></td> 
-											<td><input type="text" value="${index.purchaseproduct.product_name}" name="product_name[]" class="form-control" readonly/></td> 
-											<td><input type="number" value="${index.purchase_price}" name="purchase_price[]" class="form-control" readonly/></td> 
-											<td><input type="number" id="sellprice-${index.id}" value="${index.sell_price}" name="sell_price[]" class="form-control" readonly/></td> 
+											<td><input type="hidden" value="${index.id}" name="productId[]" class="form-control" readonly/></td>
+											<td><input type="text" value="${index.purchaseproduct.product_name}" name="product_name[]" class="form-control" readonly/></td>
+											<td><input type="number" value="${index.purchase_price}" name="purchase_price[]" class="form-control" readonly/></td>
+											<td><input type="number" id="sellprice-${index.id}" value="${index.sell_price}" name="sell_price[]" class="form-control" readonly/></td>
 											<td>
 												<select name="warehousestock[]" class="form-control" data-style="py-0" id="warehouseName-${index.id}">
 													<option>Select Storage</option>
 												</select>
 											</td>
-											<td><input type="number" id="warehouseQuantity-${index.id}" name="warehouse_quantity[]" value="" class="form-control" readonly/></td> 
-											<td><input type="number" id="totalqty-${index.id}" name="quantity[]" placeholder="Quantity" class="form-control" /></td> 
+											<td><input type="number" id="warehouseQuantity-${index.id}" name="warehouse_quantity[]" value="" class="form-control" readonly/></td>
+											<td><input type="number" id="totalqty-${index.id}" name="quantity[]" placeholder="Quantity" class="form-control" /></td>
 											<td><input type="number" id="totalprice-${index.id}" name="total_price[]" class="total_amount form-control" readonly/></td>
-											<td><button type="button" class="btn btn-danger remove-table">Remove</button></td> 
+											<td><button type="button" class="btn btn-danger remove-table">Remove</button></td>
 										</tr>
 									</tbody>`);
 								 table+=`</table>`
@@ -284,23 +284,23 @@
 
 								$.map(warehousestockqty, function(stock){
 									$(`#warehouseName-${index.id}`).append(`<option value="${stock.id}">${stock.warehouse_name} - ${stock.warehouse_stockqty}</option>`);
-								});									
-							
+								});
+
 								// Use for Stock quantity calculation
 								$(`#warehouseName-${index.id}`).on('change', function(e) {
-								
+
 									const showID = $(this).val();
 									const warehousQty = warehousestockqty;
 									// const sales = orderQty;
 
-									
+
 
 									var warehouseDetails = warehousQty.filter(warehouseName);
-										
+
 									var subQty = parseInt(warehouseDetails[0].warehouse_stockqty);
 
 									const order = orderQty;
-			
+
 									var totalQty = 0;
 
 									console.log(showID);
@@ -310,11 +310,11 @@
 									$.each(order, function(index, value){
 										console.log(value.warehousestockqty_id);
 										if(value.warehousestockqty_id == showID){
-										
+
 										totalQty += parseInt(value.quantity);
 
 										}
-										
+
 									})
 
 									// const orderDetails = order.filter(orderDetail);
@@ -350,7 +350,7 @@
 
 									}
 								});
-							     
+
                             })
 
                        }
@@ -358,7 +358,7 @@
                 });
             });
 
-			$(document).on('click', '.remove-table', function(){  
+			$(document).on('click', '.remove-table', function(){
          		$(this).parents('table').remove();
     		});
 
@@ -368,7 +368,7 @@
 
 			let productName = parseInt($('#productID').val());
 			let sellprice = parseInt($(`#sellprice-${productName}`).val());
-			let totalqty = parseInt($(`#totalqty-${productName}`).val());  
+			let totalqty = parseInt($(`#totalqty-${productName}`).val());
 			let totalprice = parseInt((sellprice * totalqty));
 			parseInt($(`#totalprice-${productName}`).val(totalprice));
 
@@ -384,7 +384,7 @@
 			let subTotalamount = parseInt($("#subtotalSellamount").val());
 			let totalamount = parseInt(previoueDue + subTotalamount);
 			$("#totalSellamount").val(totalamount);
-                
+
     	});
 
 		// Discount Calculate in %
@@ -392,10 +392,10 @@
 		$("#discount").change(function(){
 
 			let subtotalSellamount = parseInt($("#subtotalSellamount").val());
- 
+
 			let discount = parseInt($('#discount').val());
 			let totalDiscount = parseInt((subtotalSellamount * discount) / 100);
-			let subAmount = (subtotalSellamount - totalDiscount);			
+			let subAmount = (subtotalSellamount - totalDiscount);
 
 			$("#subtotalSellamount").val(subAmount);
 
@@ -403,7 +403,7 @@
 			let previousdue = parseInt($("#previousdue").val());
 			let totalAmountTk = parseInt(totalSellamount + previousdue);
 			$('#totalSellamount').val(totalAmountTk);
-                
+
     	});
 
 		// Discount Calculate in BDT
@@ -411,7 +411,7 @@
 		$("#discountTk").change(function(){
 
 			let subtotalSellamount = parseInt($("#subtotalSellamount").val());
- 
+
 			let discountTk = parseInt($('#discountTk').val());
 			let totalDiscountTK = parseInt(subtotalSellamount - discountTk);
 
@@ -421,7 +421,7 @@
 			let previousdue = parseInt($("#previousdue").val());
 			let totalAmountTk = parseInt(totalSellamount + previousdue);
 			$('#totalSellamount').val(totalAmountTk);
-                
+
     	});
 
 		// Vat Calculate in %
@@ -436,12 +436,12 @@
 
 			$("#subtotalSellamount").val(totalAmount);
 
-			
+
 			let totalSellamount = parseInt($("#subtotalSellamount").val());
 			let previousdue = parseInt($("#previousdue").val());
 			let totalAmountTk = parseInt(totalSellamount + previousdue);
 			$('#totalSellamount').val(totalAmountTk);
-                
+
     	});
 
 		// Vat Calculate in BDT
@@ -455,25 +455,25 @@
 
 			$("#subtotalSellamount").val(totalVatTk);
 
-			
+
 			let totalSellamount = parseInt($("#subtotalSellamount").val());
 			let previousdue = parseInt($("#previousdue").val());
 			let totalAmountTk = parseInt(totalSellamount + previousdue);
 			$('#totalSellamount').val(totalAmountTk);
-                
+
     	});
 
 		// end Calculator
 
 		$("#paymentID").on('click', function() {
-  
+
 			var paymentID =  $(this).val();
 			// alert(paymentID);
 				if(paymentID === 'Cash'){
 
 				$("#cash").show()
 				$("#card").hide()
-				
+
 			}
 			else if(paymentID === 'Card'){
 
@@ -496,7 +496,7 @@
 			let recivedamount = parseInt($("#receivedAmount").val());
 			let totalrecivedamount = parseInt(totalSellamount - recivedamount);
 			parseInt($("#dueAmount").val(totalrecivedamount));
-                
+
     	});
 
 
@@ -532,7 +532,7 @@
                 }
             }
 
-	
+
 
 </script>
 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Companay Settings Update
+    Nitmag | Companay Settings Update
 @endsection
 
 @section('content')
@@ -30,21 +30,21 @@
                                 <form action="{{ route('company-setting.update', $companysetting->id) }}" method="POST" enctype="multipart/form-data">
 									@csrf
                                     @method('PATCH')
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Name *</label>
                                                 <input type="text" class="form-control" value="{{ $companysetting->company_name }}" name="company_name">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Email *</label>
                                                 <input type="email" class="form-control" value="{{ $companysetting->company_email }}" name="company_email">
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Company Phone Number *</label>
@@ -67,7 +67,7 @@
                                                 <textarea class="form-control" rows="4" name="company_address">{{ $companysetting->company_address }}</textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2">Update Setting</button>
                                 </form>
                             </div>

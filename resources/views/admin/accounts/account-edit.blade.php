@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Account Update
+    Nitmag | Account Update
 @endsection
 
 @section('content')
@@ -29,35 +29,35 @@
 						<form action="{{ route('accounts.update', $account->id) }}" method="POST">
 							@csrf
 							@method('PATCH')
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Accounts Name *</label>
 										<input type="text" class="form-control" placeholder="Enter Accounts Name" name="account_name" value="{{ $account->account_name }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
-								<div class="col-md-6">                      
+								</div>
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Accounts Number *</label>
 										<input type="text" class="form-control" placeholder="Enter Accounts Number" name="account_number" value="{{ $account->account_number }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Accounts Holder Name *</label>
 										<input type="text" class="form-control" placeholder="Enter Accounts Holder Name" name="account_holder_name" value="{{ $account->account_holder_name }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Branch Name *</label>
 										<input type="text" class="form-control" placeholder="Enter Branch Name" name="branch_name" value="{{ $account->branch_name }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Account Balance *</label>
@@ -77,7 +77,7 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update Account</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

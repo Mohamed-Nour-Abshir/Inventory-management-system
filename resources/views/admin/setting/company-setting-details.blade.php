@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Company Settings Information
+    Nitmag | Company Settings Information
 @endsection
 
 @push('css')

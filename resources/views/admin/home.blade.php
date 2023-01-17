@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
-
-@section('content')     
+@section('title')
+    Nitmag | Home
+@endsection
+@section('content')
     <div class="content-page">
         <div class="container-fluid">
             <div class="row">

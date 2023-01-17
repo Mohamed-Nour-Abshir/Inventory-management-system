@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Profile Edit
+    Nitmag | Profile Edit
 @endsection
 
 @section('content')
@@ -56,7 +56,7 @@
 															<i class="las la-pen upload-button"></i>
 															<input class="file-upload" type="file" accept="image/*" name="image">
 														</div>
-													</div>                                          
+													</div>
 												</div>
 												</div>
 											</div>

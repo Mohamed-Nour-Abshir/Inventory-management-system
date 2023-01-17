@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Customers Email List
+    Nitmag | Customers Email List
 @endsection
 
 @section('content')

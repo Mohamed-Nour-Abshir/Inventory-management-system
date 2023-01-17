@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Customers Email
+    Nitmag | Customers Email
 @endsection
 
 @section('content')
@@ -28,8 +28,8 @@
                             <div class="card-body">
                                 <form id="customerForm" action="{{ route('customer-email.store') }}" method="POST">
 									@csrf
-                                    <div class="row"> 
-                                        <div class="col-md-6">                      
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Customer Name *</label>
                                                 <select name="customer" class="form-control selectpicker formText" data-live-search="true" data-style="py-0" id="customerID">
@@ -41,14 +41,14 @@
 													@endforeach
 												</select>
                                             </div>
-                                        </div>    
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email *</label>
                                                 <input type="email" id="emailId" class="form-control" value="" name="email" readonly>
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Phone Number *</label>
@@ -69,7 +69,7 @@
                                                 <textarea class="form-control formMsg" rows="4" name="customer_message"></textarea>
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>
                                     <button type="submit" class="btn btn-primary mr-2 sendEmail">Send Email</button>
                                     <button type="reset" class="btn btn-danger">Reset</button>
                                 </form>
@@ -84,7 +84,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -94,19 +94,19 @@
             });
 
 			$(document).ready(function () {
-             
+
                 $('#customerID').change(function(e) {
 
                 var customerId = e.target.value;
 
                  $.ajax({
-                       
+
                        url:"{{ route('customer-api') }}",
                        type:"POST",
                        data: {
                            customerId: customerId
                         },
-                      
+
                        success:function (data) {
 							// console.log(data);
 							$("#emailId").val(data.customer[0].email);

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Purchase Return Add
+    Nitmag | Purchase Return Add
 @endsection
 
 @section('content')
@@ -29,13 +29,13 @@
 						<form action="{{ route('purchase-return.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<div class="col-md-6">                      
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Date</label>
 										<input type="date" class="form-control" name="date">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Product Name</label>
@@ -66,7 +66,7 @@
 								<div class="col-md-8">
 									<div class="form-group" id="warehouseDetails">
 										<label>Storage Details</label>
-									
+
 									</div>
 								</div>
 								<div class="col-md-12">
@@ -75,7 +75,7 @@
 										<textarea class="form-control" rows="4" placeholder="Damage Details" name="damage_note"></textarea>
 									</div>
 								</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Return Product</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>
@@ -90,7 +90,7 @@
 @endsection
 
 @push('script')
-	
+
 <script>
 
 	$.ajaxSetup({
@@ -102,25 +102,25 @@
 	// Use for Stock Details
 
 			$(document).ready(function () {
-             
+
                 $('#productName').change(function(e) {
 
                 var product_id = e.target.value;
                 // var table = "";
 
                  $.ajax({
-                       
+
                        url:"{{ route('purchase-productreturn') }}",
                        type:"POST",
                        data: {
                            product_id: product_id
                         },
-                      
+
                        success:function (data) {
 						// console.log(data);
 						$('#supplier_name').val(data.product[0].supplier_name);
 						$('#qty').val(data.product[0].quantity);
-						
+
 							$.map(data.product[0].warehousestockqty,function(index){
 								console.log(index);
 								$('#warehouseDetails').append(
@@ -149,11 +149,11 @@
                 });
             });
 
-				$(document).on('click', '.remove-tr', function(){  
+				$(document).on('click', '.remove-tr', function(){
                             $(this).parents('table').remove();
                 });
 
-           
+
 </script>
 
 @endpush

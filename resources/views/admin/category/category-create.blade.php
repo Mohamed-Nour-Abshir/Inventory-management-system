@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Category Add
+    Nitmag | Category Add
 @endsection
 
 @section('content')
@@ -29,14 +29,14 @@
 						<form action="{{ route('category.store') }}" method="POST" data-toggle="validator">
 							@csrf
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Category Name *</label>
 										<input type="text" name="name" class="form-control" placeholder="Enter Category Name">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>                                
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Category</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

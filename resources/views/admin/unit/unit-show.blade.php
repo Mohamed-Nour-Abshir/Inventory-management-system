@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | Unit Add
+    Nitmag | Unit Add
 @endsection
 
 @section('content')
@@ -29,14 +29,14 @@
 						<form action="{{ route('unit.store') }}" method="POST">
 							@csrf
 							<div class="row">
-								<div class="col-md-12">                      
+								<div class="col-md-12">
 									<div class="form-group">
 										<label>Unit Name *</label>
 										<input type="text" name="name" class="form-control" placeholder="Enter Unit Name">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>                                
-							</div>                            
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Add Unit</button>
 							<button type="reset" class="btn btn-danger">Reset</button>
 						</form>

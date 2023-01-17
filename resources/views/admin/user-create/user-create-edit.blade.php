@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Inventory Management | User Update
+    Nitmag | User Update
 @endsection
 
 @section('content')
@@ -32,35 +32,35 @@
 						<form action="{{ route('user-create.update', $user->id) }}" method="POST" enctype="multipart/form-data">
 							@csrf
 							@method('PATCH')
-							<div class="row"> 
-								<div class="col-md-6">                      
+							<div class="row">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Name *</label>
 										<input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{ $user->name }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
-								<div class="col-md-6">                      
+								</div>
+								<div class="col-md-6">
 									<div class="form-group">
 										<label>Email *</label>
 										<input type="email" class="form-control" name="email" value="{{ $user->email }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>    
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Password</label>
 										<input type="password" id="pwd1" class="form-control" placeholder="Enter Password" name="password">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Phone Number *</label>
 										<input type="number" class="form-control" placeholder="Enter Phone Number" name="contact" value="{{ $user->contact }}">
 										<div class="help-block with-errors"></div>
 									</div>
-								</div> 
+								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Image</label>
@@ -98,7 +98,7 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-							</div>                            
+							</div>
 							<button type="submit" class="btn btn-primary mr-2">Update User</button>
 						</form>
 					</div>
