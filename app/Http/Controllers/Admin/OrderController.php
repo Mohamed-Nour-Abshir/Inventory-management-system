@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Purchaseproduct;
 use App\Models\Shipping;
 use App\Models\Stock;
+use Faker\Core\Number;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
@@ -76,6 +77,8 @@ class OrderController extends Controller
             'sell_price' => 'required',
             'total_price' => 'required',
             'quantity' => 'required',
+            'paymentmethod' => 'required',
+            'order_status' => 'required',
         ]);
 
         $shipping = new Shipping([
@@ -86,7 +89,7 @@ class OrderController extends Controller
 
         $order = new Order([
             'order_id' => IdGenerator::generate($uniqueid),
-            'invoice' => Str::random(8),
+            'invoice' => rand(1, 999999),
             'order_date' => $request->get('order_date'),
             'shipping_id' => $shipping->id,
             'paymentmethod' => $request->get('paymentmethod'),

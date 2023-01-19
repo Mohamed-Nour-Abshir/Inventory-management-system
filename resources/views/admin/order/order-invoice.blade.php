@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 			<div class="card card-block card-stretch card-height print rounded">
-				<div class="card-header d-flex justify-content-between bg-primary header-invoice">
+				<div class="card-header d-flex justify-content-between bg-danger header-invoice">
 						<div class="iq-header-title">
 							<h4 class="card-title mb-0">Invoice #{{ $orderDetails->invoice }}</h4>
 						</div>
@@ -25,13 +25,15 @@
 					<div class="row mb-4">
 						<div class="col-sm-12">
 							<div class="float-left">
-								<img src="{{ asset('logo') . '/' . $companysetting->company_logo }}" class="logo-invoice img-fluid mb-3">
+								{{-- <img src="{{ asset('logo') . '/' . $companysetting->company_logo }}" class="logo-invoice img-fluid mb-3"> --}}
 							</div>
-							<div class=" text-center">
-								<h4><i>{{ $companysetting->company_name }}</i></h4>
-								<div><small><b>Phone Number: {{ $companysetting->company_contact }} </b></small></div>
-								<div><small><b>Email: {{ $companysetting->company_email }} </b></small></div>
-								<div class="text-center"><small><b>Address: {{ $companysetting->company_address }} </b> </small></div>
+							<div class=" text-center d-flex justify-content-between">
+								<h4 class="text-danger p-5"><i>{{ $companysetting->company_name }}</i></h4>
+								<div class="border-left border-danger p-5">
+                                    <div><small><b>Phone Number: {{ $companysetting->company_contact }} </b></small></div>
+								    <div><small><b>Email: {{ $companysetting->company_email }} </b></small></div>
+								    <div class="text-center"><small><b>Address: {{ $companysetting->company_address }} </b> </small></div>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -99,7 +101,42 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mt-4 mb-3">
+
+
+
+
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="table-responsive-sm">
+									<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">Total Amount</th>
+											<th scope="col">payment Status</th>
+											<th scope="col">Payment method</th>
+											<th scope="col">Received amount</th>
+											<th scope="col">Due amount</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>BDT. {{ $orderDetails->total_amount }}</td>
+											<td><span class="badge badge-danger">{{ $orderDetails->order_status }}</span></td>
+											<td>{{ $orderDetails->paymentmethod }}</td>
+											<td>BDT. {{ $orderDetails->received_amount }}</td>
+											<td>BDT. {{ $orderDetails->due }}</td>
+										</tr>
+									</tbody>
+									</table>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					{{-- <div class="row mt-4 mb-3">
 						<div class="offset-lg-8 col-lg-4">
 							<div class="or-detail rounded">
 								<div class="ttl-amt py-2 px-3 d-flex justify-content-between align-items-center">
@@ -145,7 +182,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 			</div>

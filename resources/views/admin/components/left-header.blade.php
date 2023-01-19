@@ -432,7 +432,7 @@
                     <div class="card-body p-0">
                         <div class="sidebarbottom-content">
                             <div class="image"><img src="{{ asset('assets/images/background/footer.png') }}" class="img-fluid" alt="side-bkg"></div>
-                            <h6 class="mt-4 px-4 body-title">Inventory Management System</h6>
+                            <h6 class="mt-4 px-4 body-title">Nitmag</h6>
                         </div>
                     </div>
                 </div>
@@ -446,8 +446,8 @@
                     <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                         <i class="ri-menu-line wrapper-menu"></i>
                         <a href="{{ route('home') }}" class="header-logo">
-                            <img src="{{ asset('assets/images/kaizenit.png') }}" class="img-fluid rounded-normal" alt="logo">
-                            <h5 class="logo-title ml-3">Inventory</h5>
+                            <img src="{{ asset('logo/nitmaglogo.png') }}" class="img-fluid rounded-normal" alt="logo">
+                            <h5 class="logo-title ml-3">Nitmag</h5>
 
                         </a>
                     </div>
