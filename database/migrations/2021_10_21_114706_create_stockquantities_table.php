@@ -15,7 +15,7 @@ class CreateStockquantitiesTable extends Migration
     {
         Schema::create('stockquantities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('storage_name');
+            $table->string('storage_name');
             $table->string('quantity');
             $table->bigInteger('stock_id')->unsigned();
             $table->foreign('stock_id')->references('id')->on('stocks')->cascadeOnDelete();
