@@ -1,5 +1,5 @@
       <!-- Favicon -->
-      <link rel="shortcut icon" href="{{ asset('assets/images/nitmaglogo.png') }}" />
+      <link rel="shortcut icon" type="image/x-icon" href="{{asset('logo/nitmaglogo.png')}}">
       <link rel="stylesheet" href="{{ asset('assets/css/backend-plugin.min.css') }}">
       <link rel="stylesheet" href="{{ asset('assets/css/backend.css?v=1.0.0') }}">
       <link rel="stylesheet" href="{{ asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}">

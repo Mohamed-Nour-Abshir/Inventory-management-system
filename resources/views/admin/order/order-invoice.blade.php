@@ -24,12 +24,12 @@
 					<div class="row mb-4">
 						<div class="col-sm-12">
 							<div class=" text-center d-flex justify-content-between">
-								<h4 class="text-danger"><i>{{ $companysetting->company_name }}</i></h4>
+								{{-- <h4 class="text-danger"><i>{{ $companysetting->company_name }}</i></h4> --}}
 								<div class="float-left mr-5">
 									<img src="{{ asset('logo/NitmagLogoPng.png')}}" class="logo-invoice img-fluid mb-3">
 								</div>
-								<div class="border-left border-danger p-5 pt-0">
-                                    <div class="text-center"><small><b>Address: {{ $companysetting->company_address }} </b> </small></div>
+								<div class="border-left border-danger px-5 pb-5 pt-0 text-left">
+                                    <div class="text-right"><small><b>Address: {{ $companysetting->company_address }} </b> </small></div>
                                     <div><small><b>Email: {{ $companysetting->company_email }} </b></small></div>
                                     <div><small><b>Website: <a href="http://nitmagbd.com/" target="_blank">nitmagbd.com</a> </b></small></div>
                                     <div><small><b>Phone Number: {{ $companysetting->company_contact }} </b></small></div>
@@ -196,21 +196,10 @@
 	</div>
 
 
-    <div class="container-fluid">
-        <div class="">
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <div class="col-lg-8">
-                        <ul class="list-inline mb-0">
-                            <p>Authority Signature</p>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <p>Customer signature</p>
-						{{-- <span style="border: 1px solid rgb(236, 236, 236); display:block;"></span> --}}
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <p>Authority Signature</p>
+            <p>Customer Signature</p>
         </div>
     </div>
 

@@ -2,6 +2,9 @@
 @section('title')
     Nitmag | Home
 @endsection
+@php
+    $user = Auth::guard('web')->user();
+@endphp
 @section('content')
     <div class="content-page">
         <div class="container-fluid">
@@ -125,10 +128,10 @@
                                 <div class="card-body bg-light text-center rounded">
                                     <div class="d-flex align-items-center card-total-sale">
                                         <div class="icon iq-icon-box-2 bg-info-light">
-                                            <img src="{{ asset('assets/images/product/user2.png') }}" class="img-fluid" alt="image">
+                                            <img src="{{ asset('assets/images/product/sell.png') }}" class="img-fluid" alt="image">
                                         </div>
                                         <div>
-                                            <a href="{{ route('user-create.create') }}"><h3>Create Users</h3></a>
+                                            {{-- <a href="{{ route('challan.index') }}"><h3>Challan</h3></a> --}}
                                         </div>
                                     </div>
                                 </div>

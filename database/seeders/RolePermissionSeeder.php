@@ -165,6 +165,15 @@ class RolePermissionSeeder extends Seeder
                     'Fundtransfer Delete',
                 ]
             ],
+
+            [
+                'group_name' => 'Challan',
+                'permissions' => [
+                    'Challan List',
+                    'Invoice Edit',
+                    'Invoice Delete',
+                ]
+            ],
         ];
 
         for ($i = 0; $i < count($permissions); $i++) {

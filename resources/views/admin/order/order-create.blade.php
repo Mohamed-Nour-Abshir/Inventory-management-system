@@ -251,7 +251,12 @@
 										<tr>
 											<th></th>
 											<th>Product</th>
-											<th>Purchase Price</th>
+                                            @php
+                                                $user = Auth::guard('web')->user();
+                                            @endphp
+                                            @if($user->designation === 'SuperAdmin')
+											    <th>Purchase Price</th>
+                                            @endif
 											<th>Sell Price</th>
 											<th>Storage Name</th>
 											<th>Storage Quantity</th>
@@ -264,7 +269,9 @@
 										<tr>
 											<td><input type="hidden" value="${index.id}" name="productId[]" class="form-control" readonly/></td>
 											<td><input type="text" value="${index.purchaseproduct.product_name}" name="product_name[]" class="form-control" readonly/></td>
-											<td><input type="number" value="${index.purchase_price}" name="purchase_price[]" class="form-control" readonly/></td>
+                                            @if($user->designation === 'SuperAdmin')
+											    <td><input type="number" value="${index.purchase_price}" name="purchase_price[]" class="form-control" readonly/></td>
+                                            @endif
 											<td><input type="number" id="sellprice-${index.id}" value="${index.sell_price}" name="sell_price[]" class="form-control" readonly/></td>
 											<td>
 												<select name="warehousestock[]" class="form-control" data-style="py-0" id="warehouseName-${index.id}">

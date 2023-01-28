@@ -82,7 +82,7 @@
 											<tr>
 												<td><input type="number" name="products_id[]" placeholder="Enter Product ID" class="form-control" /></td>
 												<td><input type="text" name="product[]" placeholder="Enter Product Name" class="form-control" /></td>
-												<td><input type="number" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
+												<td><input type="text" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
 												<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 											</tr>
 										</table>
@@ -112,7 +112,7 @@
 			`<tr>
 				<td><input type="number" name="products_id[]" placeholder="Enter Product ID" class="form-control" /></td>
 				<td><input type="text" name="product[]" placeholder="Enter Product Name" class="form-control" /></td>
-				<td><input type="number" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
+				<td><input type="text" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
 				<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td>
 			</tr>
 				`);

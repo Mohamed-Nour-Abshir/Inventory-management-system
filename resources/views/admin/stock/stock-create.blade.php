@@ -36,7 +36,19 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-									<div class="form-group">
+                                    <div class="form-group p-2">
+                                        <h6>Product</h6>
+                                        <select name="purchaseproduct" class="form-control selectpicker formProduct" data-live-search="true" data-style="py-0" id="purchaseProductId">
+                                            <option>Select Product</option>
+                                            @foreach($purchase as $item)
+                                                <option value="{{ $item->id }}">
+                                                    {{ $item->product_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+									{{-- <div class="form-group">
 										<label>Product Name</label>
 										<select name="purchaseproduct" class="cal form-control" data-style="py-0" id="purchaseProductId">
 											<option>Select Product</option>
@@ -46,7 +58,7 @@
 												</option>
 											@endforeach
 										</select>
-									</div>
+									</div> --}}
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">

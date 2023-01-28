@@ -448,11 +448,10 @@
                         <a href="{{ route('home') }}" class="header-logo">
                             <img src="{{ asset('logo/nitmaglogo.png') }}" class="img-fluid rounded-normal" alt="logo">
                             <h5 class="logo-title ml-3">Nitmag</h5>
-
                         </a>
                     </div>
                     <div class="iq-search-bar device-search">
-                        <h3><i>{{ $companysetting->company_name }}</i></h3>
+                        {{-- <h3><i>{{ $companysetting->company_name }}</i></h3> --}}
                         {{-- <h3><i>Kaizen It Ltd</i></h3> --}}
                     </div>
                     <div class="d-flex align-items-center">

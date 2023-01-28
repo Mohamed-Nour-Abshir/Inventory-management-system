@@ -56,7 +56,7 @@ class SupplierController extends Controller
             'email' => 'required',
             'company_name' => 'required',
             'designation' => 'required',
-            'contact' => ['required', 'min:11', 'max:11'],
+            'contact' => 'required',
             'address' => 'required',
         ]);
 
@@ -151,7 +151,8 @@ class SupplierController extends Controller
                     [
                         'product' => $data,
                         'price' => $request->price[$key],
-                        'supplier_id' => $supplier->id
+                        'supplier_id' => $supplier->id,
+                        'products_id' => $request->products_id[$key]
                     ]
                 );
             };

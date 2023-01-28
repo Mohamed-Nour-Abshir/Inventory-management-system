@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Email *</label>
+                                                <label>Email </label>
                                                 <input type="text" class="form-control" placeholder="Enter Email" name="email">
                                                 <div class="help-block with-errors"></div>
                                             </div>

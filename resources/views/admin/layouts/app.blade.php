@@ -6,8 +6,9 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <meta name="csrf-token" content="{{ csrf_token() }}">
+     <link rel="shortcut icon" type="image/x-icon" href="{{asset('logo/nitmaglogo.png')}}">
       <title>@yield('title')</title>
-      
+
 		{{-- Style --}}
 		@include('admin.components.style')
 
@@ -26,7 +27,7 @@
 
       	@yield('content')
     </div>
-    
+
 	{{-- footer --}}
     @include('admin.components.footer')
 

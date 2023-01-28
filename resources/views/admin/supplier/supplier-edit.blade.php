@@ -78,7 +78,7 @@
 													<td><input type="hidden" name="price_name[]" value="{{ $productprice->id }}"/></td>
 													<td><input type="text" name="products_id[]" value="{{ $productprice->products_id }}" class="form-control" /></td>
 													<td><input type="text" name="product[]" value="{{ $productprice->product }}" class="form-control" /></td>
-													<td><input type="number" name="price[]" value="{{ $productprice->price }}" class="form-control" /></td>
+													<td><input type="text" name="price[]" value="{{ $productprice->price }}" class="form-control" /></td>
 													{{-- @dump($supplier->supplierproduct->last()) --}}
 													@if($supplier->supplierproduct->first()->id == $productprice->id)
 													<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
@@ -121,7 +121,7 @@ var i = 0;
 				<td></td>
 				<td><input type="text" name="products_id[]" placeholder="Enter Product ID" class="form-control" /></td>
 				<td><input type="text" name="product[]" placeholder="Enter Product Name" class="form-control" /></td>
-				<td><input type="number" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
+				<td><input type="text" name="price[]" placeholder="Enter Product Price" class="form-control" /></td>
 				<td><button type="submit" class="btn btn-danger remove-tr">Remove</button></td>
 			</tr>`);
 
