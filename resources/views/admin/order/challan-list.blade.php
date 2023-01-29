@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Nitmag | Order List
+    Nitmag | Challan List
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
 			<div class="col-lg-12">
 				<div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
 					<div>
-						<h4 class="mb-3">Order List</h4>
+						<h4 class="mb-3">Challan List</h4>
 						<p class="mb-0"></p>
 					</div>
 					@if($rolePermission->can('Order Create'))
@@ -33,7 +33,7 @@
 							<th>Total Amount</th>
 							<th>Received Amount</th>
 							<th>Due Amount</th>
-							<th>Order Status</th>
+							{{-- <th>Order Status</th> --}}
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -49,25 +49,12 @@
 							<td>BDT. {{ $data->total_amount }}</td>
 							<td>BDT. {{ $data->received_amount }}</td>
 							<td><div class="badge badge-warning mr-2"><h5>BDT. {{ $data->due }}</h5></div></td>
-							<td><div class="btn btn-danger mt-2"><h5>{{ $data->order_status }}</h5></div></td>
+							{{-- <td><div class="btn btn-danger mt-2"><h5>{{ $data->order_status }}</h5></div></td> --}}
 
 							<td>
 								<div class="d-flex align-items-center list-action">
 									<a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View Invoice"
-										href="{{ route('order.show', $data->id) }}"><i class="ri-eye-line mr-0"></i></a>
-								@if($rolePermission->can('Invoice Edit'))
-									<a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit Invoice"
-										href="{{ route('order.edit', $data->id) }}"><i class="ri-pencil-line mr-0"></i></a>
-								@endif
-								@if($rolePermission->can('Invoice Delete'))
-									<form action="{{ route('order.destroy', [$data->id]) }}" method="POST">
-										@csrf
-										@method('DELETE')
-											<button type="submit" class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" >
-												<i class="ri-delete-bin-line mr-0"></i>
-											</button>
-									</form>
-								@endif
+										href="{{ route('challan.show', $data->id) }}"><i class="ri-eye-line mr-0"></i></a>
 								</div>
 							</td>
 						</tr>
@@ -87,3 +74,4 @@
 </div>
 
 @endsection
+

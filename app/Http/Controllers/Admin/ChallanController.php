@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Companaysetting;
+use App\Models\Orderdetail;
 use Illuminate\Http\Request;
 
 class ChallanController extends Controller
@@ -50,6 +52,12 @@ class ChallanController extends Controller
     public function show($id)
     {
         //
+        $orderDetails = Order::with('shipping', 'orderdetail')->where('orders.id', $id)->first();
+        $orderShow = Order::with('shipping', 'orderdetail')->where('orders.id', $id)->get();
+        $orderproduct = Orderdetail::with('order')->where('order_id', $id)->get();
+        $companysetting = Companaysetting::first();
+
+        return view('admin.order.challan-invoice', compact('orderShow', 'orderDetails', 'orderproduct', 'companysetting'));
     }
 
     /**

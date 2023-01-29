@@ -131,7 +131,7 @@
                                             <img src="{{ asset('assets/images/product/sell.png') }}" class="img-fluid" alt="image">
                                         </div>
                                         <div>
-                                            {{-- <a href="{{ route('challan.index') }}"><h3>Challan</h3></a> --}}
+                                            <a href="{{route('challan.index')}}"><h3>Challan</h3></a>
                                         </div>
                                     </div>
                                 </div>

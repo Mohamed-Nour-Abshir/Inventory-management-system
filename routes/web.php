@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\ChallanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +14,6 @@ use App\Http\Controllers\Admin\OrderController;
 |
 */
 
-
 // Authentication Routes...
 // Route::get('/', 'Auth\LoginController@showLoginForm');
 // Route::get('logout', 'Auth\LoginController@logout');
@@ -23,9 +21,7 @@ Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 
-// ChallanController
 Auth::routes();
-Route::get('/challan', [ChallanController::class, 'index'])->name('challan.index');
 
 // Route for Admin User
 Route::group(['prefix' => '/home', 'middleware' => ['is_admin'], 'namespace' => 'Admin'], function () {
@@ -55,8 +51,7 @@ Route::group(['prefix' => '/home', 'middleware' => ['is_admin'], 'namespace' => 
     Route::post('purchase-product', 'ProductpurchaseController@showPurchaseproduct')->name('purchase-product');
     // use for Order
     Route::resource('order', 'OrderController');
-
-
+    Route::resource('challan', 'ChallanController');
 
     Route::post('customer-details', 'ProductpurchaseController@customer')->name('customer-details');
     Route::post('order-purchaseproduct', 'ProductpurchaseController@orderPurchaseproduct')->name('order-purchaseproduct');

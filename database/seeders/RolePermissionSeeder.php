@@ -170,8 +170,8 @@ class RolePermissionSeeder extends Seeder
                 'group_name' => 'Challan',
                 'permissions' => [
                     'Challan List',
-                    'Invoice Edit',
-                    'Invoice Delete',
+                    'Challan Edit',
+                    'Challan Delete',
                 ]
             ],
         ];

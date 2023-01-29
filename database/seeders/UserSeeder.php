@@ -18,16 +18,17 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $user = User::where('email', 'info@kaizenitbd.com')->first();
+        $user = User::where('email', 'info@nitmag.com')->first();
 
         if (is_null($user)) {
             $user = new User();
-            $user->name = 'Kaizen It Ltd';
-            $user->email = 'info@kaizenitbd.com';
+            $user->name = 'Nitmag';
+            $user->email = 'info@nitmag.com';
             $user->password = Hash::make('123456789');
-            $user->contact = '01934453979';
+            $user->contact = '+8801943-505040';
             $user->designation = 'Admin';
-            $user->address = '151/6, 2nd floor, Gazi Tower, Panthapath Dhaka-1205';
+            $user->address = '#Baitul Laz, Flat-4A, 3rd Floor, 183,
+            Green Road, Dhanmondi, Dhaka-1205';
         }
     }
 }

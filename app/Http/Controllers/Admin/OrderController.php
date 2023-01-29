@@ -203,11 +203,4 @@ class OrderController extends Controller
         $order->delete();
         return redirect('home/order')->with($notification);
     }
-
-    public function challan()
-    {
-        $order = Order::with('shipping')->get();
-        return view('admin.order.challan-list', compact('order'));
-    }
 }
- 
