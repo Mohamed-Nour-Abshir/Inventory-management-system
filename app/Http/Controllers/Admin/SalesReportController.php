@@ -18,9 +18,9 @@ class SalesReportController extends Controller
         return view('admin.report.sales-report', compact('salesReport'));
     }
 
-    public function purchaseReport(Request $request)
+    public function salesReport(Request $request)
     {
-        $salesReport = Order::where('order_date', '>=', $request->from)->where('order_date', '<=', $request->to)->get();
+        $salesReport = Orderdetail::where('created_at', '>=', $request->from)->where('created_at', '<=', $request->to)->get();
 
         return view('admin.report.sales-report', compact('salesReport'));
     }

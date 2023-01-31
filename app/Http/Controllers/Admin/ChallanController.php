@@ -92,5 +92,13 @@ class ChallanController extends Controller
     public function destroy($id)
     {
         //
+        $notification = [
+            'message' => 'Challan Delete successfully',
+            'alert-type' => 'success',
+        ];
+        $order = Order::findOrFail($id);
+        $order->delete();
+        return redirect('home/challan')->with($notification);
     }
+
 }

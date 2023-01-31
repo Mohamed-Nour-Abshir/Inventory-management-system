@@ -1,36 +1,36 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 @extends('admin.layouts.base')
 @section('title')
     Nitmag | Challan
 @endsection
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<style>
-    .invoice-title h2, .invoice-title h3 {
-    display: inline-block;
-}
 
-.table > tbody > tr > .no-line {
-    border-top: none;
-}
 
-.table > thead > tr > .no-line {
-    border-bottom: none;
-}
-
-.table > tbody > tr > .thick-line {
-    border-top: 2px solid;
-}
-</style>
 <div class="content-page">
 <div class="container-fluid">
     <div class="invoice-btn">
         <button type="button" class="btn btn-primary-dark btn-sm mr-2" onclick="window.print()"><i class="las la-print"></i>
             Print</button>
-        </div>
+        </div> 
+        <style>
+            .invoice-title h2, .invoice-title h3 {
+            display: inline-block;
+        }
+
+        .table > tbody > tr > .no-line {
+            border-top: none;
+        }
+
+        .table > thead > tr > .no-line {
+            border-bottom: none;
+        }
+
+        .table > tbody > tr > .thick-line {
+            border-top: 2px solid;
+        }
+        </style>
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-default">
@@ -84,9 +84,9 @@
     						<thead>
                                 <tr>
         							<th><strong>SL No.</strong></th>
-        							<th class="text-center"><strong>HS Code</strong></th>
+        							<th class="text-center"><strong>Order No.</strong></th>
         							<th class="text-center"><strong>Itam description</strong></th>
-        							<th class="text-right"><strong>Qty</strong></th>
+        							<th class="text-center"><strong>Qty</strong></th>
         							<th class="text-right"><strong>Subtotal</strong></th>
                                 </tr>
     						</thead>
@@ -124,3 +124,5 @@
     </div>
 </div>
 </div>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

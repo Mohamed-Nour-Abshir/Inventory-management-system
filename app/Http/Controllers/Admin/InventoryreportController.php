@@ -28,9 +28,13 @@ class InventoryreportController extends Controller
 
     public function inventoryReport(Request $request)
     {
-        $salesReport = Orderdetail::where('order_date', '>=', $request->from)->where('order_date', '<=', $request->to)->get();
+        // $inventoryProduct = Orderdetail::where('created_at', '>=', $request->from)->where('created_at', '<=', $request->to)->get();
+        $inventoryProduct = Orderdetail::with('product')
+            ->select(DB::raw('sum(quantity) as qty'), 'product_name', 'purchase_price', 'sell_price')
+            ->groupBy('product_name', 'purchase_price', 'sell_price')->where('created_at', '>=', $request->from)->where('created_at', '<=', $request->to)
+            ->get();
 
-        return view('admin.report.sales-report', compact('salesReport'));
+        return view('admin.report.inventory-report', compact('inventoryProduct'));
     }
 
     public function inventoryExcelsheet()

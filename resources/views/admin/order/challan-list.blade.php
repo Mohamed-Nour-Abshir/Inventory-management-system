@@ -2,7 +2,9 @@
 @section('title')
     Nitmag | Challan List
 @endsection
-
+@php
+    $user = Auth::guard('web')->user();
+@endphp
 @section('content')
  @php
      $rolePermission = Auth::guard('web')->user();
@@ -56,6 +58,15 @@
 									<a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View Invoice"
 										href="{{ route('challan.show', $data->id) }}"><i class="ri-eye-line mr-0"></i></a>
 								</div>
+                                @if($user->can('Challan List'))
+									<form action="{{ route('challan.destroy', [$data->id]) }}" method="POST">
+										@csrf
+										@method('DELETE')
+											<button type="submit" class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" >
+												<i class="ri-delete-bin-line mr-0"></i>
+											</button>
+									</form>
+								@endif
 							</td>
 						</tr>
 						@endforeach

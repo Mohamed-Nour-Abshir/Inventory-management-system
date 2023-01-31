@@ -9,7 +9,7 @@
 	<div class="container-fluid">
 		<div class="row">
 				<div class="col-lg-12">
-					<form action="{{ route('purchaseReport') }}" method="post" class="d-flex flex-row bd-highlight mb-3">
+					<form action="{{ route('inventoryReport') }}" method="post" class="d-flex flex-row bd-highlight mb-3">
 						@csrf
 						<div class="p-2 bd-highlight">
 							<input type="date" name="from" class="form-control" value="{{ date('Y-m-d') }}">

@@ -236,7 +236,7 @@ padding: 15px 5px !important;
                                                                 <td><input type="text" class="form-control" value="${index.products_id}" name="products_id[]" readonly/></td>
                                                                 <td><input type="text" class="form-control" value="${index.product}" name="product_name[]" readonly/></td>
                                                                 <td><input type="text" id="purchaseprice-${index.id}" class="form-control" value="${index.price}" name="product_price[]" readonly/></td>
-                                                                <td><input type="number" class="form-control" name="sell_price[]" /></td>
+                                                                <td><input type="number" class="form-control" id="saleprice" name="sell_price[]" /></td>
                                                                 <td><input type="number" id="quantity-${index.id}" class="form-control" name="quantity[]" value="0" /></td>
                                                                 <td><input type="text" class="form-control" name="color[]" /></td>
                                                                 <td><input type="number" id="discount-${index.id}" class="form-control" name="discount[]" value="0" /></td>
@@ -272,7 +272,7 @@ padding: 15px 5px !important;
 
         let productName = $('#productName').val();
         // console.log(productName);
-        let purchaseprice = $(`#purchaseprice-${productName}`).val();
+        let purchaseprice = $(`#saleprice`).val();
         let quantity = $(`#quantity-${productName}`).val();
         let discount = $(`#discount-${productName}`).val();
         let totalDiscount = (purchaseprice * quantity * discount) / 100;

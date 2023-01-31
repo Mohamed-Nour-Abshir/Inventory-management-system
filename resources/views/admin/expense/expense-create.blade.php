@@ -42,10 +42,12 @@
 										<table class="table" id="dynamicTable">
 											<tr>
 												<th>Name</th>
+												<th>Purpose</th>
 												<th>Price</th>
 											</tr>
 											<tr>
 												<td><input type="text" name="name[]" placeholder="Enter Expense Name" class="form-control" /></td>
+                                                <td><textarea type="text" name="purpose[]" placeholder="Enter the purpose" class="form-control" ></textarea></td>
 												<td><input type="number" name="price[]" placeholder="Enter Expense Price" class="form-control" /></td>
 												<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 											</tr>
@@ -77,6 +79,7 @@ var i = 0;
 
         $("#dynamicTable").append(`<tr>
 				<td><input type="text" name="name[]" placeholder="Enter Expense Name" class="form-control" /></td>
+                <td><textarea type="text" name="purpose[]" placeholder="Enter the purpose" class="form-control" ></textarea></td>
 				<td><input type="number" name="price[]" placeholder="Enter Expense Price" class="form-control" /></td>
 				<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td>
 			</tr>`);

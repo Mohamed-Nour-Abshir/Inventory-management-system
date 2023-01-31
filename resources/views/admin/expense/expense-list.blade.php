@@ -22,6 +22,10 @@
 					@endif
 				</div>
 			</div>
+            <div class="invoice-btn">
+                <button type="button" class="btn btn-primary-dark btn-sm mr-2" onclick="window.print()"><i class="las la-print"></i>
+                    Print</button>
+                </div>
 			<div class="col-lg-12">
 				<div class="table-responsive rounded mb-3">
 				<table class="table mb-0 tbl-server-info">
@@ -29,6 +33,7 @@
 						<tr class="ligth ligth-data">
 							<th>SL.</th>
 							<th>Name</th>
+							<th>Purpose</th>
 							<th>Price</th>
 							<th>Date</th>
 							<th>Action</th>
@@ -42,6 +47,7 @@
 						<tr>
 							<td>{{ ++$i }}</td>
 							<td>{{ $item->name }}</td>
+							<td>{{ $item->purpose }}</td>
 							<td>{{ $item->price }}</td>
 							<td>{{ $item->date }}</td>
 							<td>

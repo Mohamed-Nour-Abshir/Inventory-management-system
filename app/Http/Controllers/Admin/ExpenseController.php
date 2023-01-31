@@ -46,6 +46,7 @@ class ExpenseController extends Controller
         $request->validate([
             'date' => 'required',
             'name' => 'required',
+            'purpose' => 'required',
             'price' => 'required',
         ]);
 
@@ -55,6 +56,7 @@ class ExpenseController extends Controller
                 $data = array(
                     'date' => $request->date,
                     'name' => $request->name[$item],
+                    'purpose' => $request->name[$item],
                     'price' => $request->price[$item],
                 );
 
